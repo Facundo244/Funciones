@@ -31,6 +31,32 @@ int main()
    //   }
    //}
     //el vector se le puede poner numeros cuando se declara ínt vector[T] = (1 ,2 ,3 ..)
+    //----------------------
+
+    //int vector[T] = (1 , 2, 3 ,4 ,5 ,6, 7, 8, 9, 10);
+    //int i;
+    //int j;
+    //int aux; -->"vaso vacio"
+
+    //for(i=0 ; i <T-1;i++)---> for aninados
+    //{
+        //for(j=i+1; j < T ; j++)
+        //{
+            //if(vector[i] < vector[j])
+            //{
+                //aux = vector[i];
+                //vector[i] = vector[j];
+                //vector[j] = aux;
+            //}
+        //}
+    //}
+
+    //for(i = 0; i<T ; i++)
+    //{
+       //printf("%d\n", vector[i]);
+    //}
+
+
 
     return 0;
 }
