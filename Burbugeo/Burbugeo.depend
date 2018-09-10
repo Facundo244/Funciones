@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1536588077 source:c:\users\alumno\desktop\burbugeo\main.c
+	<stdio.h>
+	<stdlib.h>
+
