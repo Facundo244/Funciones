@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1537120673 source:c:\users\facundo\desktop\todoimportante\todoimportante\registroalumnoss\alumnosregistro\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
+1537119678 source:c:\users\facundo\desktop\todoimportante\todoimportante\registroalumnoss\alumnosregistro\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
+1537119687 c:\users\facundo\desktop\todoimportante\todoimportante\registroalumnoss\alumnosregistro\biblioteca.h
+
+1537187646 source:c:\users\alumno\desktop\todoimportante\todoimportante\registroalumnos\alumnosregistro\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
+1537187601 c:\users\alumno\desktop\todoimportante\todoimportante\registroalumnos\alumnosregistro\biblioteca.h
+
+1537186374 source:c:\users\alumno\desktop\todoimportante\todoimportante\registroalumnos\alumnosregistro\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
