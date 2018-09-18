@@ -3,32 +3,12 @@
 #include <string.h>
 #include <ctype.h>
 #include "Biblioteca.h"
-#define T 2
+#define T 3
 
-typedef struct
-{
-    int legajo;
-    char nombre[50];
-    float altura;
-    int nota;
-}sAlumno;
 
-//      -- TAREA --
-//-ordenas nombre
-//-muetre los alumnos aprobados (notas>6)
-//-muetre los alumnos que se llaman Juan
-//-muestre los alumnos cuyo nombre comienzan con P
-//-el alumno con mas nota (sabiendo que puede ser mas que uno)
-//"El mas mediocre legajo=100 nota=5 se llama pepe medir 1.75"
-//-Ingresa un legajo y permitir la modificacion de la nota
-//(transformar la carga de datos en una carga aleatoria)
-//------------------------------------------------------------------
 int main()
 {
-    int legajos[T];
-    char nombres[T][21]; //----> 10 nombres y 20 caracteres
-    int notas[T];
-    float alturas[T];
+    sAlumno listadoAlumnos[T];
     int opcion=0;
 
     do
@@ -68,29 +48,36 @@ int main()
         {
             case 1:
                 system("cls");
-                cargarAlumnos(legajos, nombres, notas, alturas, T);
+                cargarAlumnos(listadoAlumnos , T);
                 break;
 
             case 2:
                 system("cls");
-                mostrarAlumnos(legajos , nombres,notas,alturas,T);
+                mostrarAlumnos(listadoAlumnos , T);
                 break;
 
             case 3:
                 system("cls");
-                alfabeticamente(legajos, nombres, notas, alturas, T);
-                mostrarAlumnos(legajos , nombres,notas,alturas,T);
+                ordenarNombre(listadoAlumnos , T);
+                mostrarAlumnos(listadoAlumnos , T);
                 break;
-
-
+            case 4:
+                mostrarAlumnosAprobados(listadoAlumnos , T);
+                break;
+            case 5:
+                busquedaJuan(listadoAlumnos , T);
+                break;
+            case 6:
+                busquedaP(listadoAlumnos , T);
+                break;
             case 9:
-                opcion = 9;
+                opcion = 10;
                 break;
 
         }
         system("pause");
     }
-    while(opcion!=9);
+    while(opcion!=10);
     {
         return 0;
     }

@@ -1,9 +1,19 @@
 #ifndef Biblioteca
 
-void cargarAlumnos(int[] , char[][21] , int[] , float[] , int);
-void mostrarAlumnos(int[] , char[][21] , int[] , float[] , int );
-void alfabeticamente(int[] , char[][21] , int[] , float[] , int);
+typedef struct
+{
+    int legajo;
+    char nombre[21];
+    float altura;
+    int nota;
+}sAlumno;
 
+void cargarAlumnos(sAlumno listadoAlumnos[], int tam);
+void mostrarAlumnos(sAlumno listadoAlumnos[], int tam);
+void ordenarNombre(sAlumno listadoAlumnos[], int tam);
+void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam);
+void busquedaJuan(sAlumno listadoAlumnos[] , int tam);
+void busquedaP(sAlumno listadoAlumnos[] , int tam);
 #endif // Biblioteca
 
 

@@ -31,3 +31,19 @@
 	<ctype.h>
 	"Biblioteca.h"
 
+1537229801 source:c:\users\facundo\desktop\todoimportante\alumnosregistro\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
+1537229990 c:\users\facundo\desktop\todoimportante\alumnosregistro\biblioteca.h
+
+1537229979 source:c:\users\facundo\desktop\todoimportante\alumnosregistro\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+

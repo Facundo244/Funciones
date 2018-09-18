@@ -4,69 +4,107 @@
 #include <ctype.h>
 #include "Biblioteca.h"
 
-void alfabeticamente(int legajos[] , char nombres[][21] , int notas[] , float alturas[] , int tam)
-{
-    int auxInt;
-    float auxFloat;
-    char auxString[100];
 
+void cargarAlumnos(sAlumno listadoAlumnos[], int tam)
+{
+    int i;
+    for(i=0; i<tam; i++)
+    {
+        system("cls");
+        printf("Ingrese legajo: ");
+        scanf("%d", &listadoAlumnos[i].legajo);
+        fflush(stdin);
+        printf("Ingrese nombre: ");
+        gets(listadoAlumnos[i].nombre);
+        fflush(stdin);
+        printf("Ingrese nota: ");
+        scanf("%d", &listadoAlumnos[i].nota);
+        fflush(stdin);
+        printf("Ingrese altura: ");
+        scanf("%f", &listadoAlumnos[i].altura);
+        fflush(stdin);
+    }
+}
+void mostrarAlumnos(sAlumno listadoAlumnos[], int tam)
+{
+    system("cls");
+    printf("%4s %20s %20s %5s \n", "Legajo", "Nombre", "Nota", "Altura");
+    int i;
+    for(i=0; i<tam; i++)
+    {
+        printf("%4d %20s %20d %.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
+    }
+    system("pause");
+}
+void ordenarNombre(sAlumno listadoAlumnos[], int tam)
+{
     int i;
     int j;
+    sAlumno aux;
 
-        for(i=0 ; i<tam-1 ; i++)
+    system("cls");
+    for(i=0; i<tam-1; i++)
+    {
+        for(j=i+1; j<tam; j++)
         {
-            for(j = i+1 ; j<tam ; j++)
-            {
-                if(strcmp(nombres[i],nombres[j]) < 0)
+                if (strcmp(listadoAlumnos[i].nombre, listadoAlumnos[j].nombre) > 0)
                 {
-                    strcpy(auxString,nombres[i]);
-                    strcpy(nombres[i],nombres[j]);
-                    strcpy(nombres[j],auxString);
-
-                    auxInt=legajos[i];
-                    legajos[i]=legajos[j];
-                    legajos[j]=auxInt;
-
-                    auxFloat = alturas[i];
-                    alturas[i]= alturas[j];
-                    alturas[j]= auxFloat;
-
+                    aux=listadoAlumnos[i];
+                    listadoAlumnos[i]=listadoAlumnos[j];
+                    listadoAlumnos[j]=aux;
                 }
-            }
         }
+    }
+    printf(" |*****************************|\n");
+    printf("|      Ordenando nombres        |\n");
+    printf(" |*****************************|\n");
+    system("pause");
 }
 
-
-void cargarAlumnos(int legajos[] , char nombres[][21] , int notas[] , float alturas[] , int tam )
+void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
 {
-   int i;
+    int i;
+    int x =0;
+    sAlumno alumnosAprobados[i];
 
-   for(i=0 ; i<tam; i++)
+    for(i=0; i<tam; i++)
     {
-        printf("Ingrese legajo: ");
-        scanf("%d" , &legajos[i]);
+        if(listadoAlumnos[i].nota > 6)
+        {
+            alumnosAprobados[i]=listadoAlumnos[i];
+            x++;
+        }
+    }
+    mostrarAlumnos(alumnosAprobados, tam);
+}
 
-        printf("Ingrese nombre: ");
-        fflush(stdin);
-        gets(nombres[i]);
+void busquedaJuan(sAlumno listadoAlumnos[] , int tam)
+{
+    int i;
+    int contadorJuan=0;
+    char nombres="Juan";
 
-        printf("Ingrese nota: ");
-        scanf("%d" ,&notas[i]);
-
-        printf("Ingrese altura: ");
-        scanf("%f" ,&alturas[i]);
+    for(i=0;i<tam ; i++)
+    {
+        if(listadoAlumnos[i].nombre == nombres)
+        {
+            contadorJuan++;
+        }
+        printf("Se han encontrar %s alumnos con el nombre juan" , contadorJuan);
     }
 }
 
-void mostrarAlumnos(int legajos[] , char nombres[][21] , int notas[] , float alturas[] , int tam)
+void busquedaP(sAlumno listadoAlumnos[] , int tam)
 {
     int i;
 
-    printf("Legajo  Nombre   Nota   Altura \n"); //---> tambien podria ser printf("%4s %20s% 2s %5s" ,"Legajo" , "Nombre" , "Nota" , "Altura" \n);
-    for(i=0 ; i<tam ; i++)
+    for(i=0; i < tam-1; i++)
     {
-        printf("%4d    %4s    %4d    %4f\n" , legajos[i] , nombres[i], notas[i] , alturas[i]);
+        printf("Los alumnos cuyo nombre incian con P son: ");
+        if(listadoAlumnos[i].nombre == 'P')
+        {
+            printf("%s" , listadoAlumnos[i].nombre);
+        }
     }
 }
-
 
