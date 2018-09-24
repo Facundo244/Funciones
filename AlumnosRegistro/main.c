@@ -11,6 +11,8 @@ int main()
     sAlumno listadoAlumnos[T];
     int opcion=0;
 
+    inicializar(listadoAlumnos , T);
+
     do
     {
         printf("\n ******************************************** ");
@@ -48,7 +50,8 @@ int main()
         {
             case 1:
                 system("cls");
-                cargarAlumnos(listadoAlumnos , T);
+                cargarAlumnos(listadoAlumnos, T);
+                buscarLibre(listadoAlumnos , T ,  -1);
                 break;
 
             case 2:
@@ -83,7 +86,7 @@ int main()
             case 9:
                 system("cls");
                 notaMayor(listadoAlumnos , T);
-            case 10:void notaMayor(sAlumno listadoAlumnos[] , int tam)
+            case 10:
                 opcion = 10;
                 break;
 

@@ -4,27 +4,10 @@
 #include <ctype.h>
 #include "Biblioteca.h"
 
+//int altaPersona(sAlumno listaPersonas[], int cantidad)
+//{
+//}
 
-void cargarAlumnos(sAlumno listadoAlumnos[], int tam)
-{
-    int i;
-    for(i=0; i<tam; i++)
-    {
-        system("cls");
-        printf("Ingrese legajo: ");
-        scanf("%d", &listadoAlumnos[i].legajo);
-        fflush(stdin);
-        printf("Ingrese nombre: ");
-        gets(listadoAlumnos[i].nombre);
-        fflush(stdin);
-        printf("Ingrese nota: ");
-        scanf("%d", &listadoAlumnos[i].nota);
-        fflush(stdin);
-        printf("Ingrese altura: ");
-        scanf("%f", &listadoAlumnos[i].altura);
-        fflush(stdin);
-    }
-}
 void mostrarAlumnos(sAlumno listadoAlumnos[], int tam)
 {
     system("cls");
@@ -121,6 +104,7 @@ void alumnoMediocre(sAlumno listadoAlumnos[] , int tam)
 
 void modificarNota(sAlumno listadoAlumnos[] , int tam)
 {
+    //DECLARAR #define VACIO -1 , OCUPADO 1 , BORRADO 0 ,(ESTOS VAN EN EL H)
     int i;
     int auxLegajo;
 
@@ -131,7 +115,7 @@ void modificarNota(sAlumno listadoAlumnos[] , int tam)
 
     for(i=0 ; i<tam ; i++)
     {
-            if(listadoAlumnos[i].legajo == auxLegajo)
+            if(listadoAlumnos[i].legajo == auxLegajo) //listadoLAlumos.[i].estado != VACIO && auxLegajo == listadoalumnos[i].legajo
            {
                printf("Ingrese la nota nueva: ");
                scanf("%d" , & listadoAlumnos[i].nota);
@@ -161,4 +145,61 @@ void notaMayor(sAlumno listadoAlumnos[] , int tam)
 
     printf("%4d %20s %4d %5.2f\n", max.legajo, max.nombre, max.nota, max.altura);
 }
+
+int inicializar(sAlumno* listaPersonas, int cantidad)
+{
+    int retorno = 0; /// Valor que retorna si esta todo mal
+    int i;
+    if(listaPersonas != NULL && cantidad>0)
+    {
+        retorno = 1;
+        for (i=0; i<cantidad; i++)
+        {
+            listaPersonas[i].isEmpty = 1;
+        }
+    }
+    return retorno;
+}
+
+int buscarLibre(sAlumno listaAlumnos[] , int tam , int ilogico)
+{
+     int retorno = -1;
+     int i;
+
+    if(listaAlumnos != NULL && tam>0)
+    {
+        for (i=0; i<tam; i++)
+        {
+            if (listaAlumnos[i].legajo == ilogico)
+            {
+                retorno = i;
+                break;
+
+            }
+        }
+    }
+    return retorno;
+}
+
+void cargarAlumnos(sAlumno listadoAlumnos[], int tam)
+{
+    int i;
+    for(i=0; i<tam; i++)
+    {
+        system("cls");
+        printf("Ingrese legajo: ");
+        scanf("%d", &listadoAlumnos[i].legajo);
+        fflush(stdin);
+        printf("Ingrese nombre: ");
+        gets(listadoAlumnos[i].nombre);
+        fflush(stdin);
+        printf("Ingrese nota: ");
+        scanf("%d", &listadoAlumnos[i].nota);
+        fflush(stdin);
+        printf("Ingrese altura: ");
+        scanf("%f", &listadoAlumnos[i].altura);
+        fflush(stdin);
+    }
+}
+
 

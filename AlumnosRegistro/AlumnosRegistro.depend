@@ -47,3 +47,19 @@
 	<ctype.h>
 	"Biblioteca.h"
 
+1537795384 source:c:\users\alumno\desktop\todoimportante\alumnosregistro\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
+1537795384 c:\users\alumno\desktop\todoimportante\alumnosregistro\biblioteca.h
+
+1537795746 source:c:\users\alumno\desktop\todoimportante\alumnosregistro\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
