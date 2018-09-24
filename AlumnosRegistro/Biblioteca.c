@@ -64,47 +64,101 @@ void ordenarNombre(sAlumno listadoAlumnos[], int tam)
 void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam)
 {
     int i;
-    int x =0;
-    sAlumno alumnosAprobados[i];
 
     for(i=0; i<tam; i++)
     {
         if(listadoAlumnos[i].nota > 6)
         {
-            alumnosAprobados[i]=listadoAlumnos[i];
-            x++;
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre,
+            listadoAlumnos[i].nota, listadoAlumnos[i].altura);
         }
     }
-    mostrarAlumnos(alumnosAprobados, tam);
 }
 
 void busquedaJuan(sAlumno listadoAlumnos[] , int tam)
 {
     int i;
-    int contadorJuan=0;
-    char nombres="Juan";
 
     for(i=0;i<tam ; i++)
     {
-        if(listadoAlumnos[i].nombre == nombres)
+        if(strcmp(listadoAlumnos[i].nombre , "Juan") == 0 || strcmp(listadoAlumnos[i].nombre , "juan") == 0)
         {
-            contadorJuan++;
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre,
+            listadoAlumnos[i].nota, listadoAlumnos[i].altura);
         }
-        printf("Se han encontrar %s alumnos con el nombre juan" , contadorJuan);
     }
+
 }
 
 void busquedaP(sAlumno listadoAlumnos[] , int tam)
 {
     int i;
 
-    for(i=0; i < tam-1; i++)
+    for(i=0; i < tam; i++)
     {
-        printf("Los alumnos cuyo nombre incian con P son: ");
-        if(listadoAlumnos[i].nombre == 'P')
+        if(listadoAlumnos[i].nombre[0] ==  'P' || listadoAlumnos[i].nombre[0] == 'p' )
         {
-            printf("%s" , listadoAlumnos[i].nombre);
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre,
+            listadoAlumnos[i].nota, listadoAlumnos[i].altura);
         }
     }
+
+}
+
+void alumnoMediocre(sAlumno listadoAlumnos[] , int tam)
+{
+    int i;
+
+    for(i=0 ; i<tam ; i++)
+    {
+        if(listadoAlumnos[i].legajo == 100 && strcmp(listadoAlumnos[i].nombre, "Juan") == 0 && listadoAlumnos[i].nota == 5 && listadoAlumnos[i].altura == 1.75)
+        {
+            printf("%4d %20s %4d %5.2f\n", listadoAlumnos[i].legajo, listadoAlumnos[i].nombre, listadoAlumnos[i].nota, listadoAlumnos[i].altura);
+        }
+    }
+}
+
+
+void modificarNota(sAlumno listadoAlumnos[] , int tam)
+{
+    int i;
+    int auxLegajo;
+
+    printf("Ingrese el legajo: ");
+    scanf("%d" , & auxLegajo);
+
+    system("cls");
+
+    for(i=0 ; i<tam ; i++)
+    {
+            if(listadoAlumnos[i].legajo == auxLegajo)
+           {
+               printf("Ingrese la nota nueva: ");
+               scanf("%d" , & listadoAlumnos[i].nota);
+
+           }
+
+    }
+
+    printf(" |*****************************|\n");
+    printf("|      Cambiando NOTA          |\n");
+    printf(" |*****************************|\n");
+}
+
+void notaMayor(sAlumno listadoAlumnos[] , int tam)
+{
+    sAlumno max;
+    max.nota=1;
+    int i;
+
+    for(i=0 ; i<tam ; i++)
+    {
+        if(listadoAlumnos[i].nota > max.nota )
+        {
+            max = listadoAlumnos[i];
+        }
+    }
+
+    printf("%4d %20s %4d %5.2f\n", max.legajo, max.nombre, max.nota, max.altura);
 }
 

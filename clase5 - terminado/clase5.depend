@@ -22,3 +22,22 @@
 	<string.h>
 	"persona.h"
 
+1537725528 source:c:\users\facundo\desktop\todoimportante\clase5 - terminado\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"persona.h"
+
+1537725528 c:\users\facundo\desktop\todoimportante\clase5 - terminado\persona.h
+	<stdio.h>
+	<stdlib.h>
+	"fecha.h"
+
+1537725528 c:\users\facundo\desktop\todoimportante\clase5 - terminado\fecha.h
+
+1537725528 source:c:\users\facundo\desktop\todoimportante\clase5 - terminado\persona.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"persona.h"
+

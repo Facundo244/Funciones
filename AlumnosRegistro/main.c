@@ -62,15 +62,28 @@ int main()
                 mostrarAlumnos(listadoAlumnos , T);
                 break;
             case 4:
+                system("cls");
                 mostrarAlumnosAprobados(listadoAlumnos , T);
                 break;
             case 5:
+                system("cls");
                 busquedaJuan(listadoAlumnos , T);
                 break;
             case 6:
+                system("cls");
                 busquedaP(listadoAlumnos , T);
                 break;
+            case 7:
+                system("cls");
+                alumnoMediocre(listadoAlumnos , T);
+                break;
+            case 8:
+                system("cls");
+                modificarNota(listadoAlumnos , T);
             case 9:
+                system("cls");
+                notaMayor(listadoAlumnos , T);
+            case 10:void notaMayor(sAlumno listadoAlumnos[] , int tam)
                 opcion = 10;
                 break;
 
