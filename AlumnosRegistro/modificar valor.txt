@@ -1,0 +1,78 @@
+void modificarValor (sEmpleado listado[], int tam)
+{
+    mostrarEmpleados(listado,tam);
+    int idaux;
+    int i;
+    char posicion;
+    char validar;
+    printf("ingrese el ID a buscar: ");
+    scanf("%d", &idaux);
+    for (i=0; i<tam; i++)
+    {
+        if(idaux == listado[i].id)
+        {
+            printf("%5s\t %5s\t %5s\t %5s\t %5s\t","ID","Nombre","Apellido","Salario", "Sector \n");
+            mostrarEmpleado(listado[i]);
+            printf("¿Desea modificar alguno de los parametros?  \n  s / n ");
+            validar=getch();
+            validar=tolower(validar);
+            char numero[10];
+            int n;
+            if(validar=='s')
+            {
+                printf("¿Que parametro desea modificar?  \n  1 - Nombre \n 2 - Apellido \n 3 - Salario \n 4 - Sector \n ");
+                posicion=getch();
+                switch(posicion)
+                {
+                case '1':
+                    fflush(stdin);
+                    printf("Ingrese el nombre: ");
+                    gets(listado[i].nombre);
+                    validarNombre(listado[i]);
+                    correccionNombres(listado,tam);
+
+                    system("pause");
+                    break;
+                case '2':
+                    fflush(stdin);
+                    printf("Ingrese el apellido: ");
+                    gets(listado[i].apellido);
+                    validarApellido(listado[i]);
+                    correccionApellidos(listado,tam);
+                    system("pause");
+                    break;
+                case '3':
+                    fflush(stdin);
+                    printf("Ingrese el salario: ");
+                    scanf("%f",&listado[i].salario);
+                    fflush(stdin);
+                    system("pause");
+                    break;
+                case '4':
+                    do
+                    {
+                        fflush(stdin);
+                        printf("Ingrese el sector: ");
+                        scanf("%s",numero);
+                        fflush(stdin);
+                        n=validarNumero(numero);
+                    }
+                    while(n==0);
+                    listado[i].sector=atoi(numero);
+                    system("pause");
+                    break;
+                default:
+                    printf("No existe esa opción. \n");
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+
+        }
+    }
+    correccionNombres(listado,tam);
+    correccionApellidos(listado,tam);
+}

@@ -1,0 +1,32 @@
+
+
+void darBaja (sEmpleado listado[], int tam)
+{
+    mostrarEmpleados(listado,tam);
+    int idaux;
+    int i;
+    char validar;
+    int flag=0;
+    printf("ingrese el ID a dar de baja: ");
+    scanf("%d", &idaux);
+    for (i=0; i<tam; i++)
+    {
+        if(listado[i].vacio==0 && idaux == listado[i].id)
+        {
+            printf("%5s\t %5s\t %5s\t %5s\t %5s\t","ID","Nombre","Apellido","Salario", "Sector \n");
+            mostrarEmpleado(listado[i]);
+            printf("¿Desea dar de baja este empleado?  \n  s / n ");
+            validar=getch();
+            validar=tolower(validar);
+            if(validar=='s')
+            {
+                flag=1;
+                listado[i].vacio=1;
+            }
+        }
+    }
+    if(flag==0)
+    {
+        printf("No se encontro el ID");
+    }
+}
