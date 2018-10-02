@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1538492533 source:d:\facundo morcillo\evaluacion\evaluacion\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Biblioteca.h"
+
+1538491656 d:\facundo morcillo\evaluacion\evaluacion\biblioteca.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538491660 source:d:\facundo morcillo\evaluacion\evaluacion\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+
