@@ -1,4 +1,8 @@
 #ifndef Biblioteca
+#define VACIO -1
+#define OCUPADO 0
+#define BORRADO 1
+#define TAM 3
 
 typedef struct
 {
@@ -7,21 +11,23 @@ typedef struct
     float altura;
     int nota;
     int isEmpty;
+    int estado;
 
 }sAlumno;
 
-void cargarAlumnos(sAlumno listadoAlumnos[], int tam);
-void mostrarAlumnos(sAlumno listadoAlumnos[], int tam);
-void ordenarNombre(sAlumno listadoAlumnos[], int tam);
-void mostrarAlumnosAprobados(sAlumno listadoAlumnos[], int tam);
-void busquedaJuan(sAlumno listadoAlumnos[] , int tam);
-void busquedaP(sAlumno listadoAlumnos[] , int tam);
-void alumnoMediocre(sAlumno listadoAlumnos[] , int tam);
-void modificarNota(sAlumno listadoAlumnos[] , int tam);
-void notaMayor(sAlumno listadoAlumnos[] , int tam);
-int inicializar(sAlumno* listaPersonas, int cantidad);
-int altaPersona(sAlumno listaPersonas[], int cantidad);
-int buscarLibre(sAlumno listaPersona[] , int tam , int ilogico);
+void menu(sAlumno listadoAlumnos[]);
+void cargarAlumnos(sAlumno listadoAlumnos[] , int);
+void mostrarAlumnos(sAlumno listadoAlumnos[]);
+void ordenarNombre(sAlumno listadoAlumnos[]);
+void mostrarAlumnosAprobados(sAlumno listadoAlumnos[]);
+void busquedaJuan(sAlumno listadoAlumnos[]);
+void busquedaP(sAlumno listadoAlumnos[]);
+void alumnoMediocre(sAlumno listadoAlumnos[]);
+void modificarNota(sAlumno listadoAlumnos[]);
+void notaMayor(sAlumno listadoAlumnos[]);
+void inicializarArrayIlogicamente(sAlumno listadoAlumnos[]);
+void cargarLibre(sAlumno listadoAlumnos[]);
+int buscarLibre(sAlumno listaPersona[]);
 #endif // Biblioteca
 
 
