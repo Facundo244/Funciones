@@ -1,0 +1,5 @@
+Un auxiliar se usa cuando queres comparar;
+
+Se usa strcmp si es un string
+
+sino se usa un if(loque quieras == lo queres comp)
