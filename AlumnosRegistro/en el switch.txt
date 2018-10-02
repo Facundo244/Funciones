@@ -1,0 +1,18 @@
+void menuEmpleados(sEmpleado listado[], int tam)
+
+
+char carga = 'N'
+
+case 'B':
+            if (carga=='S')
+            {
+                system("cls");
+                darBaja(listado, tam);
+                break;
+            }
+            else
+            {
+                printf("No se han ingresado datos de empleados. \n ");
+                system("pause");
+                break;
+            }
