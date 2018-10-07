@@ -1,0 +1,38 @@
+#ifndef Films
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define LIBRE -1
+#define OCUPADO 0
+
+
+typedef struct
+{
+
+    int id;
+    char titulo[21];
+    char nacionalidad[21];
+    char director[21];
+    int year;
+    int estado;
+
+} sFilm;
+
+void menuFilms(sFilm listadoFilm[] , int tam);
+int cargarFilm(sFilm listadoFilm[] , int i);
+void inicializarArrayIlogicamenteFilms(sFilm listadoFilm[] , int);
+int buscarLibre(sFilm listadoFilm[] , int tam);
+void mostrarUnaPelicula(sFilm);
+int mostrarListado(sFilm listadoFilm[] , int);
+int traerIndiceVacio(sFilm listadoFilm[] , int tam);
+void filmModify(sFilm listadoFilm[] , int tam);
+void filmRemoveById(sFilm listadoFilm[], int tam);
+int buscarFilmID(sFilm listadoFilm[], int tam, int id);
+
+
+
+
+
+
+
+#endif // Films

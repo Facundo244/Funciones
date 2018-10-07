@@ -16,3 +16,35 @@
 	<stdlib.h>
 	"Biblioteca.h"
 
+1538948706 source:c:\users\facundo\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Films.h"
+	"Director.h"
+
+1538949196 source:c:\users\facundo\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\films.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"Films.h"
+
+1538950371 c:\users\facundo\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\films.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538948643 source:c:\users\facundo\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\director.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"Director.h"
+
+1538950371 c:\users\facundo\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\director.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
