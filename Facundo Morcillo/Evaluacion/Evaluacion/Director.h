@@ -88,6 +88,28 @@ int cargarDirector(sDirector[], int tam);
  *
  */
 
+ void filmConsultaDirector(sDirector[], int tam);
+ /** \brief Pide ingresar un director para consultar acerca de este
+ *
+ * \param sDirector[]
+ * \param int tam
+ * \return void
+ *
+ */
+ void mostrarSoloDirector(sDirector listadoDirector);
+ /** \brief muestra solo el nombre del director
+ *
+ * \param sDirector[]
+ * \return void
+ *
+ */
+ int mostrarListadoSoloDirector(sDirector[] , int tam);
+ /** \brief muestra solo un director con todos sus parametros
+ * \param sDirector[]
+ * \param int tam
+ * \return int
+ *
+ */
 
 
 #endif // Director

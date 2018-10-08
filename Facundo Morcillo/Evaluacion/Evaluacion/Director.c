@@ -25,8 +25,9 @@ void menuDirector(sDirector listadoDirector[] , int tam )
             printf("\n      ||                                         ||");
             printf("\n      ||      3. REMOVER DIRECTOR                ||");
             printf("\n      ||                                         ||");
+            printf("\n      ||      4.CONSULTAR DIRECTOR               ||");
             printf("\n      ||                                         ||");
-            printf("\n      ||   4.Salir                               ||");
+            printf("\n      ||   5.Salir                               ||");
             printf("\n      *********************************************");
             printf("\n Ingrese una opcion (1/4): ");
             scanf("%d" , & opcion);
@@ -72,12 +73,20 @@ void menuDirector(sDirector listadoDirector[] , int tam )
 
                     }
                 case 4:
-                    opcion = 4;
+                    system("cls");
+                    filmConsultaDirector(listadoDirector,  tam);
+                    break;
 
+                case 5:
+                    system("cls");
+                    opcion = 5;
+                    break;
             }
+
             system("pause");
+
         }
-        while(opcion!=4);
+        while(opcion!=5);
         {
         }
 
@@ -86,7 +95,7 @@ void menuDirector(sDirector listadoDirector[] , int tam )
 int cargarDirector(sDirector listadoDirector[],  int tam)
 {
     char nombre[42];
-    int indice = 0;
+    int indice = traerIndiceVacioDirector(listadoDirector , tam);
 
     system("cls");
     fflush(stdin);
@@ -114,6 +123,7 @@ int cargarDirector(sDirector listadoDirector[],  int tam)
         printf("\n Ingrese tu nacionalidad: ");
         gets(listadoDirector[indice].nacionalidad);
 
+
         listadoDirector[indice].estado = OCUPADO;
     }
     else
@@ -121,7 +131,7 @@ int cargarDirector(sDirector listadoDirector[],  int tam)
         system("cls");
         printf("\n Este nombre ya existe en la base de datos \n");
     }
-    return 0;
+    return 1;
 }
 
 
@@ -157,7 +167,7 @@ void inicializarArrayIlogicamenteDirector(sDirector listadoDirector[] , int tam)
 void mostrarUnDirector(sDirector listadoDirector)
 {
 
-    printf("%10s %10s  %10d/%d/%d \n\n", listadoDirector.name, listadoDirector.nacionalidad,
+    printf("%13s %10s  %10d/%d/%d \n\n", listadoDirector.name, listadoDirector.nacionalidad,
                                  listadoDirector.fechaDeNacimiento.day, listadoDirector.fechaDeNacimiento.month , listadoDirector.fechaDeNacimiento.year);
 }
 
@@ -167,6 +177,7 @@ int mostrarListadoDirector(sDirector listadoDirector[] , int tam)
     int retorno = -1;
     int i;
 
+    system("cls");
     printf("%15s %13s %12s \n\n", "Director" ,  "Nacionalidad" ,  "Nacimiento" );
 
     if(tam > 0 && listadoDirector != NULL)
@@ -174,7 +185,7 @@ int mostrarListadoDirector(sDirector listadoDirector[] , int tam)
         retorno = 0;
         for(i=0; i<tam; i++)
         {
-            if(listadoDirector[i].estado==OCUPADO)
+            if(listadoDirector[i].estado==0)
             {
 
                 mostrarUnDirector(listadoDirector[i]);
@@ -204,6 +215,7 @@ void removeDirector(sDirector listadoDirector[], int tam)
         bandera =1;
         printf("\n\n ¿ Desea dar de baja permanentemente a este empleado ?(s/n): ");
         printf("\n\n");
+        printf("%15s %13s %12s \n\n", "Director" ,  "Nacionalidad" ,  "Nacimiento" );
         mostrarUnDirector(listadoDirector[indice]);
         seguir = getch();
 
@@ -250,3 +262,72 @@ int buscarNombreDirector(sDirector listadoDirector[], char nombre[], int tam)
 }
 
 
+
+void filmConsultaDirector(sDirector listadoDirector[], int tam)  //Consulta Director b)
+{
+
+    char Directoraux[21];
+    int indice;
+    char seguir;
+    int bandera = 0;
+
+    mostrarListadoSoloDirector(listadoDirector, tam);
+
+    printf("\n Ingrese el Director a consultar: ");
+    fflush(stdin);
+    gets(Directoraux);
+
+    indice = buscarNombreDirector(listadoDirector , Directoraux , tam);
+
+    if(indice >= 0)
+    {
+        bandera =1;
+        printf("\n\n ¿ Desea consultar por este director ?(s/n): ");
+        printf("\n\n");
+        seguir = getch();
+
+    if(seguir == 's')
+    {
+        system("cls");
+        printf("%15s %13s %12s \n\n", "Director" ,  "Nacionalidad" ,  "Nacimiento" );
+        mostrarUnDirector(listadoDirector[indice]);
+    }
+
+    }
+    if(bandera==0)
+    {
+        system("cls");
+        printf("\n No se encuentra el nombre del director en la base de datos \n");
+    }
+
+}
+
+void mostrarSoloDirector(sDirector listadoDirector)
+{
+
+    printf("%8s \n\n", listadoDirector.name);
+}
+
+
+int mostrarListadoSoloDirector(sDirector listadoDirector[] , int tam)
+{
+    int retorno = -1;
+    int i;
+
+    system("cls");
+    printf("%10s  \n\n", "Director");
+
+    if(tam > 0 && listadoDirector != NULL)
+    {
+        retorno = 0;
+        for(i=0; i<tam; i++)
+        {
+            if(listadoDirector[i].estado==OCUPADO)
+            {
+
+                mostrarSoloDirector(listadoDirector[i]);
+            }
+        }
+    }
+    return retorno;
+}

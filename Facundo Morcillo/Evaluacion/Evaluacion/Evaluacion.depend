@@ -48,3 +48,36 @@
 	<stdlib.h>
 	<string.h>
 
+1539009390 source:c:\users\alumno\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\director.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"Director.h"
+
+1539010018 c:\users\alumno\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\director.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1539010532 source:c:\users\alumno\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\films.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"Films.h"
+	"Director.h"
+
+1539010883 c:\users\alumno\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\films.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1539010018 source:c:\users\alumno\desktop\todoimportante\facundo morcillo\evaluacion\evaluacion\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Films.h"
+	"Director.h"
+

@@ -92,7 +92,53 @@ int buscarFilmID(sFilm[], int tam, int id);
  *
  */
 
+int IdAuto(void);
+/** \brief Ingrese un ID incrementandose a partir de 1
+ *
+ * \param sFilm[]
+ * \param void
 
+ * \return static int
+ *
+ */
+
+void mostrarSoloTitulo(sFilm listadoFilm);
+/** \brief Muestra solo los datos de un Titulo
+ *
+ * \param sFilm[]
+ * \return void
+ *
+ */
+int buscarTitulodePelicula(sFilm listadoFilm[], char titulo[], int tam);
+/** \brief Busca un titulo de pelicula ya ingresado
+ *
+ * \param sFilm[]
+ * \param int tam
+
+ * \return int
+ *
+ */
+
+int mostrarListadoTitulo(sFilm listadoFilm[] , int tam);
+/** \brief muestra el Titulo y su respectivo nombre en modo encolumnado
+ *
+ * \param sFilm[]
+ * \param int tam
+
+ * \return int
+ *
+ */
+
+
+void filmConsulta(sFilm listadoFilm[], int tam);
+/** \brief Ingrese el titulo de la pelicula y muetra su informacion
+ *
+ * \param sFilm[]
+ * \param void
+
+ * \return static int
+ *
+ */
 
 
 

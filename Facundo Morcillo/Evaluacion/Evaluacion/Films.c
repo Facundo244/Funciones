@@ -4,12 +4,15 @@
 #include <ctype.h>
 #include <conio.h>
 #include "Films.h"
+#include "Director.h"
 
 
 void menuFilms(sFilm listadoFilm[] , int tam)
 {
     int opcion=0;
     int validacion = 0;
+
+
     do
     {
             printf("\n      *********************************************");
@@ -26,12 +29,12 @@ void menuFilms(sFilm listadoFilm[] , int tam)
             printf("\n      ||                                         ||");
             printf("\n      ||      4. BAJA PELICULA                   ||");
             printf("\n      ||                                         ||");
+            printf("\n      ||      5. CONSULTA PELICULA               ||");
             printf("\n      ||                                         ||");
-            printf("\n      ||                                         ||");
-            printf("\n      ||   5.Salir                               ||");
+            printf("\n      ||   6.Salir                               ||");
             printf("\n      *********************************************");
             printf("\n                                                    ");
-            printf("\n Ingrese una opcion (1/5): ");
+            printf("\n Ingrese una opcion (1/6): ");
             scanf("%d" , & opcion);
 
 
@@ -93,12 +96,18 @@ void menuFilms(sFilm listadoFilm[] , int tam)
                     break;
                 }
             case 5:
-                system("cls");
-                opcion =5;
+                    system("cls");
+                    filmConsulta(listadoFilm,  tam);
+                    break;
+
+            case 6:
+                    system("cls");
+                    opcion = 6;
+                    break;
         }
         system("pause");
     }
-    while(opcion!=5);
+    while(opcion!=6);
     {
     }
 
@@ -112,9 +121,6 @@ int cargarFilm(sFilm listadoFilm[] , int tam)
 
      if(indice > -1)
      {
-         printf(" \n Ingrese ID de la pelicula: ");
-         fflush(stdin);
-         scanf("%d" , &auxFilm.id);
 
          do
          {
@@ -137,6 +143,7 @@ int cargarFilm(sFilm listadoFilm[] , int tam)
 
          }while(strlen(auxFilm.nacionalidad)==0);
 
+
          do
          {
              printf(" \n Ingrese director de la pelicula: ");
@@ -145,7 +152,7 @@ int cargarFilm(sFilm listadoFilm[] , int tam)
 
          }while(strlen(auxFilm.director)==0);
 
-         auxFilm.id= auxFilm.id;
+         auxFilm.id= IdAuto();
          auxFilm.estado = OCUPADO;
          listadoFilm[indice] = auxFilm;
 
@@ -234,7 +241,7 @@ void filmModify(sFilm listadoFilm[] , int tam)
             mostrarListado(listadoFilm , tam);
             printf("Desea modificar algun parametro ?  s / n ");
             validar=getch();
-            if(validar == 's')
+            if(validar == 's' || validar == 'S')
             {
                 do
                 {
@@ -275,7 +282,6 @@ void filmModify(sFilm listadoFilm[] , int tam)
                             scanf("%d" , &listadoFilm[i].year);
                             printf("\n\n");
                             mostrarListado(listadoFilm , tam);
-                            system("pause");
                             break;
                         case 3:
                             system("cls");
@@ -284,7 +290,6 @@ void filmModify(sFilm listadoFilm[] , int tam)
                             gets(listadoFilm[i].nacionalidad);
                             printf("\n\n");
                             mostrarListado(listadoFilm , tam);
-                            system("pause");
                             break;
                         case 4:
                             system("cls");
@@ -293,22 +298,19 @@ void filmModify(sFilm listadoFilm[] , int tam)
                             gets(listadoFilm[i].director);
                             printf("\n\n");
                             mostrarListado(listadoFilm , tam);
-                            system("pause");
                             break;
                         case 5:
+                            system("cls");
                             opcion = 5;
                             break;
-                        default:
-                            printf("Ingrese una opcion valida");
 
                     }
 
-
-
                 }
-                while(opcion!=5);
+              while(opcion!=5);
                 {
                 }
+
             }
 
         }
@@ -404,4 +406,98 @@ int buscarFilmID(sFilm listadoFilm[], int id, int tam)
     }
     return retorno;
 }
+
+int IdAuto(void)
+{
+    static int IDEmpleado=0;
+
+    IDEmpleado++;
+    return IDEmpleado;
+}
+
+
+int mostrarListadoTitulo(sFilm listadoFilm[] , int tam)
+{
+    int retorno = -1;
+    int i;
+
+    system("cls");
+    printf("%10s  \n\n", "Titulo");
+
+    if(tam > 0 && listadoFilm != NULL)
+    {
+        retorno = 0;
+        for(i=0; i<tam; i++)
+        {
+            if(listadoFilm[i].estado==OCUPADO)
+            {
+
+                mostrarSoloTitulo(listadoFilm[i]);
+            }
+        }
+    }
+    return retorno;
+}
+
+void mostrarSoloTitulo(sFilm listadoFilm)
+{
+
+    printf("%8s \n\n", listadoFilm.titulo);
+}
+
+int buscarTitulodePelicula(sFilm listadoFilm[], char titulo[], int tam)
+{
+    int i;
+    int retorno = -1;
+
+    for(i=0; i<tam; i++)
+    {
+        if(strcmp(listadoFilm[i].titulo , titulo) == 0)
+
+        {
+            retorno = i;
+        }
+    }
+    return retorno;
+}
+
+void filmConsulta(sFilm listadoFilm[], int tam) //CONSULTA PELICULA a)
+{
+
+    char filmaux[21];
+    int indice;
+    char seguir;
+    int bandera = 0;
+
+    mostrarListadoTitulo(listadoFilm, tam);
+
+    printf("\n Ingrese el Titulo de la pelicula a consultar: ");
+    fflush(stdin);
+    gets(filmaux);
+
+    indice = buscarTitulodePelicula(listadoFilm , filmaux , tam);
+
+    if(indice >= 0)
+    {
+        bandera =1;
+        printf("\n\n ¿ Desea consultar por esta pelicula ?(s/n): ");
+        printf("\n\n");
+        seguir = getch();
+
+    if(seguir == 's')
+    {
+        system("cls");
+        printf("%10s %10s %10s %15s %12s \n\n", "ID Director" , "Titulo" ,  "Anio" ,  "Nacionalidad" , "Director");
+        mostrarUnaPelicula(listadoFilm[indice]);
+    }
+
+    }
+    if(bandera==0)
+    {
+        system("cls");
+        printf("\n No se encuentra el nombre del la pelicula en la base de datos \n");
+    }
+
+}
+
 

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "Films.h"
 #include "Director.h"
-#define FILMS 1000
-#define DIRECTOR 500
+#define FILMS 3
+#define DIRECTOR 3
 
 
 
@@ -57,5 +57,7 @@ int main()
     while(opcion!=3);
     {
     }
+
+    return 0;
 
 }
