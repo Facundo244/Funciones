@@ -99,6 +99,7 @@ int cargarDirector(sDirector listadoDirector[],  int tam)
         strcpy(listadoDirector[indice].name, nombre);
         printf("\n *-Fecha de nacimiento-*  \n");
 
+
         printf("\n Ingrese el dia de nacimiento: ");
         scanf("%d", &listadoDirector[indice].fechaDeNacimiento.day);
 
@@ -107,6 +108,7 @@ int cargarDirector(sDirector listadoDirector[],  int tam)
 
         printf("\n Ingrese el anio de nacimiento: ");
         scanf("%d", &listadoDirector[indice].fechaDeNacimiento.year);
+
 
         fflush(stdin);
         printf("\n Ingrese tu nacionalidad: ");

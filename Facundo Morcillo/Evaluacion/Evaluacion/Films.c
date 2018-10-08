@@ -121,11 +121,13 @@ int cargarFilm(sFilm listadoFilm[] , int tam)
              printf(" \n Ingrese titulo de la pelicula: ");
              fflush(stdin);
              gets(auxFilm.titulo);
+
          }while(strlen(auxFilm.titulo)==0);
 
-         printf(" \n Ingrese anio de la pelicula: ");
-         fflush(stdin);
-         scanf("%d" , &auxFilm.year);
+
+          printf(" \n Ingrese anio de la pelicula: ");
+          scanf("%d" , &auxFilm.year);
+
 
          do
          {

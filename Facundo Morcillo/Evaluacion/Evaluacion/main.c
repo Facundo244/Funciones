@@ -46,6 +46,9 @@ int main()
                 system("cls");
                 menuDirector(listadoDirector ,  DIRECTOR);
                 break;
+            case 3:
+                opcion =3;
+                break;
 
 
         }
